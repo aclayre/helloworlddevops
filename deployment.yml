@@ -17,3 +17,20 @@ spec:
         image: aclayre/development
         ports:
         - containerPort: 8080
+        
+        ## Service deployment file
+        
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-dev-service
+  labels:
+    app: app-dev
+spec:
+  selector:
+    app: app-dev
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31200
