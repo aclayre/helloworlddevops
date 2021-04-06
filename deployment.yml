@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testolu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testolu
+  template:
+    metadata:
+      labels:
+        app: testolu
+    spec:
+      containers:
+      - name: testolu
+        image: aclayre/development
+        ports:
+        - containerPort: 8080
